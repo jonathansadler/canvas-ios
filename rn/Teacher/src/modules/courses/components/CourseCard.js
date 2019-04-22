@@ -113,6 +113,7 @@ export default class CourseCard extends Component<Props, State> {
                 accessible={true}
                 accessibilityTraits='button'
                 accessibilityLabel={`${course.name} ${gradeDisplay || ''}`}
+                testID={`course-card.card-${course.id}`}
               />
               { showGrade &&
                 <View style={styles.gradePill}>

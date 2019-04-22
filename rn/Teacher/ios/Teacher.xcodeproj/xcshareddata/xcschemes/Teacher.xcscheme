@@ -28,7 +28,7 @@
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "61B5371F1E786969000FEABB"
+               BlueprintIdentifier = "B186D5AF226BDBAC00BC891F"
                BuildableName = "TeacherUITests.xctest"
                BlueprintName = "TeacherUITests"
                ReferencedContainer = "container:Teacher.xcodeproj">

@@ -51,6 +51,8 @@
 		B15CA29D221F16C90014FB02 /* BundleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15CA29C221F16C90014FB02 /* BundleExtensions.swift */; };
 		B18359B2222485E60005A918 /* AccessIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18359B1222485E60005A918 /* AccessIconView.swift */; };
 		B183F99B2252925F000A6930 /* IconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B183F99A2252925F000A6930 /* IconView.swift */; };
+		B186D5B3226BDBAC00BC891F /* TeacherUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B186D5B2226BDBAC00BC891F /* TeacherUITests.swift */; };
+		B186D5BB226D5E8F00BC891F /* AnnouncementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B186D5BA226D5E8F00BC891F /* AnnouncementTests.swift */; };
 		B1992AAB2264D51200396A1F /* RoutesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1992AAA2264D51200396A1F /* RoutesTests.swift */; };
 		B1A890AA224D272D00CEE000 /* ModuleItemSubHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A890A9224D272D00CEE000 /* ModuleItemSubHeaderCell.swift */; };
 		B1A890BC224F161100CEE000 /* ModuleSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A890BB224F161100CEE000 /* ModuleSectionHeaderView.swift */; };
@@ -63,6 +65,13 @@
 
 /* Begin PBXContainerItemProxy section */
 		B15CA262221DDB820014FB02 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
+			remoteInfo = Teacher;
+		};
+		B191D5E3226D63C700D02948 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
@@ -229,6 +238,10 @@
 		B15CA29C221F16C90014FB02 /* BundleExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleExtensions.swift; sourceTree = "<group>"; };
 		B18359B1222485E60005A918 /* AccessIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessIconView.swift; sourceTree = "<group>"; };
 		B183F99A2252925F000A6930 /* IconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconView.swift; sourceTree = "<group>"; };
+		B186D5B0226BDBAC00BC891F /* TeacherUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TeacherUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B186D5B2226BDBAC00BC891F /* TeacherUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherUITests.swift; sourceTree = "<group>"; };
+		B186D5B4226BDBAC00BC891F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B186D5BA226D5E8F00BC891F /* AnnouncementTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementTests.swift; sourceTree = "<group>"; };
 		B1992AAA2264D51200396A1F /* RoutesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutesTests.swift; sourceTree = "<group>"; };
 		B1A890A9224D272D00CEE000 /* ModuleItemSubHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleItemSubHeaderCell.swift; sourceTree = "<group>"; };
 		B1A890BB224F161100CEE000 /* ModuleSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleSectionHeaderView.swift; sourceTree = "<group>"; };
@@ -270,6 +283,13 @@
 			files = (
 				840CABA038B02116B1BDA3E0 /* Pods_defaults_TeacherTests.framework in Frameworks */,
 				B15CA26D221DDEB40014FB02 /* TestsFoundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B186D5AD226BDBAC00BC891F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +360,7 @@
 				2C8E35712093AD760071ED94 /* Settings.bundle */,
 				13B07FAE1A68108700A75B9A /* Teacher */,
 				B15CA25E221DDB820014FB02 /* TeacherTests */,
+				B186D5B1226BDBAC00BC891F /* TeacherUITests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2C50EDDF1E735CA50096592C /* Frameworks */,
 				E3598DCFB2D0E7A9019957B2 /* Pods */,
@@ -353,6 +374,7 @@
 			children = (
 				13B07F961A680F5B00A75B9A /* Teacher.app */,
 				B15CA25D221DDB820014FB02 /* TeacherTests.xctest */,
+				B186D5B0226BDBAC00BC891F /* TeacherUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -422,6 +444,16 @@
 			path = ModuleList;
 			sourceTree = "<group>";
 		};
+		B186D5B1226BDBAC00BC891F /* TeacherUITests */ = {
+			isa = PBXGroup;
+			children = (
+				B186D5B2226BDBAC00BC891F /* TeacherUITests.swift */,
+				B186D5B4226BDBAC00BC891F /* Info.plist */,
+				B186D5BA226D5E8F00BC891F /* AnnouncementTests.swift */,
+			);
+			path = TeacherUITests;
+			sourceTree = "<group>";
+		};
 		E3598DCFB2D0E7A9019957B2 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -483,13 +515,31 @@
 			productReference = B15CA25D221DDB820014FB02 /* TeacherTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		B186D5AF226BDBAC00BC891F /* TeacherUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B186D5B9226BDBAC00BC891F /* Build configuration list for PBXNativeTarget "TeacherUITests" */;
+			buildPhases = (
+				B186D5AC226BDBAC00BC891F /* Sources */,
+				B186D5AD226BDBAC00BC891F /* Frameworks */,
+				B186D5AE226BDBAC00BC891F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B191D5E4226D63C700D02948 /* PBXTargetDependency */,
+			);
+			name = TeacherUITests;
+			productName = TeacherUITests;
+			productReference = B186D5B0226BDBAC00BC891F /* TeacherUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1010;
+				LastSwiftUpdateCheck = 1020;
 				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = Instructure;
 				TargetAttributes = {
@@ -513,6 +563,12 @@
 						CreatedOnToolsVersion = 10.1;
 						DevelopmentTeam = B6333T4PXQ;
 						LastSwiftMigration = 1020;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 13B07F861A680F5B00A75B9A;
+					};
+					B186D5AF226BDBAC00BC891F = {
+						CreatedOnToolsVersion = 10.2.1;
+						DevelopmentTeam = B6333T4PXQ;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
@@ -560,6 +616,7 @@
 			targets = (
 				13B07F861A680F5B00A75B9A /* Teacher */,
 				B15CA25C221DDB820014FB02 /* TeacherTests */,
+				B186D5AF226BDBAC00BC891F /* TeacherUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -582,6 +639,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		B15CA25B221DDB820014FB02 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B186D5AE226BDBAC00BC891F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -914,6 +978,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B186D5AC226BDBAC00BC891F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B186D5BB226D5E8F00BC891F /* AnnouncementTests.swift in Sources */,
+				B186D5B3226BDBAC00BC891F /* TeacherUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -921,6 +994,11 @@
 			isa = PBXTargetDependency;
 			target = 13B07F861A680F5B00A75B9A /* Teacher */;
 			targetProxy = B15CA262221DDB820014FB02 /* PBXContainerItemProxy */;
+		};
+		B191D5E4226D63C700D02948 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 13B07F861A680F5B00A75B9A /* Teacher */;
+			targetProxy = B191D5E3226D63C700D02948 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1320,6 +1398,64 @@
 			};
 			name = Release;
 		};
+		B186D5B7226BDBAC00BC891F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = B6333T4PXQ;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = TeacherUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.instructure.TeacherUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Teacher;
+			};
+			name = Debug;
+		};
+		B186D5B8226BDBAC00BC891F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = B6333T4PXQ;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = TeacherUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.instructure.TeacherUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Teacher;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1346,6 +1482,15 @@
 			buildConfigurations = (
 				B15CA265221DDB820014FB02 /* Debug */,
 				B15CA266221DDB820014FB02 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B186D5B9226BDBAC00BC891F /* Build configuration list for PBXNativeTarget "TeacherUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B186D5B7226BDBAC00BC891F /* Debug */,
+				B186D5B8226BDBAC00BC891F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

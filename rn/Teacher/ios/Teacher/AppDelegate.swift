@@ -48,6 +48,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        if CommandLine.arguments.contains("--ui-tests") {
+            UIView.setAnimationsEnabled(false)
+        }
         setupCrashlytics()
         ResetAppIfNecessary()
         clearCache()

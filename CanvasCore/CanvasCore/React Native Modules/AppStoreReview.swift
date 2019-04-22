@@ -25,6 +25,9 @@ public class AppStoreReview: NSObject {
     @objc static let fakeRequestKey = "InstFakeReviewRequestKey"
 
     @objc class func immediatelyRequestReview () {
+        if CommandLine.arguments.contains("--ui-tests") {
+            return
+        }
         if #available(iOS 10.3, *) {
             if UserDefaults.standard.bool(forKey: fakeRequestKey) {
                 let appName = Bundle.main.infoDictionary![kCFBundleNameKey as String] as! String
