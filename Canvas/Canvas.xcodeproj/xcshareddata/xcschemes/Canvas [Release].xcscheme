@@ -52,6 +52,16 @@
                ReferencedContainer = "container:Canvas.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B1A5F7142278FC26000D89FF"
+               BuildableName = "CanvasUITests.xctest"
+               BlueprintName = "CanvasUITests"
+               ReferencedContainer = "container:Canvas.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
