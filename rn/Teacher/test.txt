@@ -1,0 +1,1 @@
+RCTReadString(input, "__unused") || RCTReadString(input, "__attribute__((__unused__))");

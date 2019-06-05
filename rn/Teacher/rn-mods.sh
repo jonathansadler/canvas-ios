@@ -22,3 +22,6 @@ sed -i '' 's/self.delegate = self;/self.delegate = self;\
 
 # https://github.com/facebook/jest/issues/2567 (We can't update, since it requires newer babel)
 sed -i '' 's/  arguments: true,/  arguments: true, console: true,/' ./node_modules/babel-plugin-jest-hoist/build/index.js
+
+# https://github.com/facebook/react-native/pull/25146 Fix Xcode 11 build
+sed -i '' 's/RCTReadString(input, "__attribute__((unused))");/RCTReadString(input, "__attribute__((unused))") || RCTReadString(input, \"__attribute__((__unused__))\");/' ./node_modules/react-native/React/Base/RCTModuleMethod.mm
