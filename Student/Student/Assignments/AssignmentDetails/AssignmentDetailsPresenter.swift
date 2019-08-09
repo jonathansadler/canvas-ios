@@ -115,6 +115,7 @@ class AssignmentDetailsPresenter: PageViewLoggerPresenterProtocol {
             } }
             quizSubmissions?.refresh()
         }
+
         guard let assignment = assignment, let course = courses.first else { return }
         guard quizzes?.pending != true, quizSubmissions?.pending != true else { return }
         let baseURL = fragmentHash.flatMap { URL(string: $0, relativeTo: assignment.htmlURL) } ?? assignment.htmlURL

@@ -158,6 +158,7 @@ class AssignmentDetailsViewController: UIViewController, AssignmentDetailsViewPr
     }
 
     func updateGradeCell(_ assignment: Assignment) {
+        self.gradedView?.gradeCircle?.color = presenter?.colors.first?.color
         self.gradedView?.update(assignment)
 
         // in this case the submission should always be there because canvas generates

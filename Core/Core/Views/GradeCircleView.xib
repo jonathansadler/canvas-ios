@@ -45,7 +45,7 @@
                             </userDefinedRuntimeAttributes>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="89" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P8C-hL-0Cd" userLabel="Points Label" customClass="DynamicLabel" customModule="Core" customModuleProvider="target">
-                            <rect key="frame" x="43" y="41" width="42.5" height="38.5"/>
+                            <rect key="frame" x="43" y="35" width="42.5" height="38.5"/>
                             <accessibility key="accessibilityConfiguration">
                                 <bool key="isElement" value="NO"/>
                             </accessibility>
@@ -57,7 +57,7 @@
                             </userDefinedRuntimeAttributes>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KI8-2i-uqZ" customClass="DynamicLabel" customModule="Core" customModuleProvider="target">
-                            <rect key="frame" x="44" y="81.5" width="40" height="17"/>
+                            <rect key="frame" x="44" y="75.5" width="40" height="17"/>
                             <accessibility key="accessibilityConfiguration">
                                 <bool key="isElement" value="NO"/>
                             </accessibility>
@@ -83,7 +83,7 @@
                         <constraint firstItem="52w-3L-qip" firstAttribute="centerX" secondItem="d3s-vX-ZXP" secondAttribute="centerX" id="gP4-wL-zDM"/>
                         <constraint firstItem="P8C-hL-0Cd" firstAttribute="centerX" secondItem="d3s-vX-ZXP" secondAttribute="centerX" id="kb6-00-LfM"/>
                         <constraint firstItem="KI8-2i-uqZ" firstAttribute="top" secondItem="P8C-hL-0Cd" secondAttribute="bottom" constant="2" id="khz-8L-mVJ"/>
-                        <constraint firstItem="P8C-hL-0Cd" firstAttribute="top" secondItem="d3s-vX-ZXP" secondAttribute="top" constant="41" id="tgV-7m-Va4"/>
+                        <constraint firstItem="P8C-hL-0Cd" firstAttribute="top" secondItem="d3s-vX-ZXP" secondAttribute="top" constant="35" id="tgV-7m-Va4"/>
                     </constraints>
                 </view>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bRI-an-Yox">

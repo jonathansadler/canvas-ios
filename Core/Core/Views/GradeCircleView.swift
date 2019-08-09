@@ -47,7 +47,7 @@ public class GradeCircleView: UIView {
     @IBOutlet weak var circlePoints: UILabel!
     @IBOutlet weak var circleLabel: UILabel!
     @IBOutlet weak var circleComplete: UIImageView!
-    @IBOutlet weak var gradeCircle: GradeCircle?
+    @IBOutlet public weak var gradeCircle: GradeCircle?
     @IBOutlet weak var displayGrade: UILabel!
     @IBOutlet weak var outOfLabel: UILabel!
     @IBOutlet weak var latePenaltyLabel: UILabel!
@@ -131,9 +131,15 @@ public class GradeCircle: UIView {
         }
     }
 
+    public var color: UIColor? {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+
     override public func draw(_ rect: CGRect) {
         drawRing(progress: 1, color: UIColor.named(.borderMedium).cgColor)
-        drawRing(progress: progress ?? 0, color: Brand.shared.primary.ensureContrast(against: .named(.backgroundLightest)).cgColor)
+        drawRing(progress: progress ?? 0, color: (color ?? Brand.shared.primary).ensureContrast(against: .named(.backgroundLightest)).cgColor)
     }
 
     func drawRing(progress: Double, color: CGColor) {
