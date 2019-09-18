@@ -39,3 +39,14 @@ public struct GetFrontPageRequest: APIRequestable {
         return "\(context.pathComponent)/front_page"
     }
 }
+
+public struct GetPageRequest: APIRequestable {
+    public typealias Response = APIPage
+
+    let context: Context
+    let url: String
+
+    public var path: String {
+        return "\(context.pathComponent)/pages/\(url)"
+    }
+}

@@ -36,6 +36,7 @@ class PageListPresenter: PageViewLoggerPresenterProtocol {
     lazy var frontPage = env.subscribe(GetFrontPage(context: context)) { [weak self] in
         self?.update()
     }
+
     lazy var pages = env.subscribe(GetPages(context: context)) { [weak self] in
         self?.update()
     }
@@ -76,11 +77,11 @@ class PageListPresenter: PageViewLoggerPresenterProtocol {
     func viewIsReady() {
         colors.refresh()
         pages.refresh()
-        frontPage.refresh()
+        frontPage.refresh(force: true)
         course?.refresh()
         group?.refresh()
 
-        NotificationCenter.default.addObserver(self, selector: #selector(refreshPages), name: Notification.Name("refresh-pages"), object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(refreshPages), name: Notification.Name("refresh-pages"), object: nil)
     }
 
     func select(_ page: Page, from view: UIViewController) {

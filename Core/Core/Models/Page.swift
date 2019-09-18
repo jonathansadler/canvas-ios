@@ -28,6 +28,8 @@ public class Page: NSManagedObject {
     @NSManaged public var title: String
     @NSManaged public var htmlURL: String
     @NSManaged public var published: Bool
+    @NSManaged public var body: String
+    @NSManaged public var editingRoles: [String]
 }
 
 extension Page {
@@ -42,7 +44,21 @@ extension Page {
         model.title = item.title
         model.htmlURL = item.html_url
         model.published = item.published
+        model.body = item.body ?? ""
+        model.editingRoles = item.editing_roles?.split(separator: ",").map(String.init) ?? []
 
         return model
+    }
+
+    func update(from item: APIPage) {
+        self.url = item.url
+        self.lastUpdated = item.updated_at
+        self.isFrontPage = item.front_page
+        self.id = item.page_id.value
+        self.title = item.title
+        self.htmlURL = item.html_url
+        self.published = item.published
+        self.body = item.body ?? ""
+        self.editingRoles = item.editing_roles?.split(separator: ",").map(String.init) ?? []
     }
 }

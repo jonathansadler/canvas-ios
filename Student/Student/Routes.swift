@@ -226,7 +226,12 @@ let routeMap: [String: RouteHandler.ViewFactory?] = [
     "/courses/:courseID/pages/:url": { url, params in
         guard let courseID = params["courseID"] else { return nil }
         if let controller = moduleItemController(for: url, courseID: courseID) { return controller }
-        return HelmViewController(moduleName: "/courses/:courseID/pages/:url/rn", props: makeProps(url, params: params))
+        if ExperimentalFeature.newPageDetails.isEnabled {
+            guard let url = params["url"] else { return nil }
+            return PageDetailsViewController.create(context: ContextModel(.course, id: courseID), pageURL: url, app: .student)
+        } else {
+            return HelmViewController(moduleName: "/courses/:courseID/pages/:url/rn", props: makeProps(url, params: params))
+        }
     },
     "/courses/:courseID/wiki/:url": { url, params in
         guard let courseID = params["courseID"] else { return nil }
@@ -235,6 +240,8 @@ let routeMap: [String: RouteHandler.ViewFactory?] = [
     },
     "/courses/:courseID/pages/:url/rn": nil,
     "/courses/:courseID/wiki/:url/rn": nil,
+    "/courses/:courseID/pages/:url/edit": nil,
+    "/courses/:courseID/wiki/:url/edit": nil,
 
     "/groups/:groupID/pages/:url": { url, params in
         guard let groupID = params["groupID"], let purl = params["url"] else { return nil }
