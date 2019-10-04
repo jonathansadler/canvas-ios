@@ -188,3 +188,5 @@ You can test this locally with command line arguments.
 ```
 
 Change the `username`, `password`, and `host` to your test credentials. You can also add `host` and `authenticationProvider` strings to the top level dict to skip the "Find my school" screen during login.
+
+
