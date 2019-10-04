@@ -163,6 +163,62 @@
                BlueprintName = "StudentUnitTests"
                ReferencedContainer = "container:Student.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "AssignmentDetailsPresenterTests">
+               </Test>
+               <Test
+                  Identifier = "AssignmentListPresenterTests">
+               </Test>
+               <Test
+                  Identifier = "CourseNavigationPresenterTests">
+               </Test>
+               <Test
+                  Identifier = "GroupNavigationPresenterTests">
+               </Test>
+               <Test
+                  Identifier = "PeopleListPresenterTests">
+               </Test>
+               <Test
+                  Identifier = "PersistenceTestCase">
+               </Test>
+               <Test
+                  Identifier = "QuizListPresenterTests">
+               </Test>
+               <Test
+                  Identifier = "RoutesTests">
+               </Test>
+               <Test
+                  Identifier = "RubricPresenterTests">
+               </Test>
+               <Test
+                  Identifier = "StudentSyllabusPresenterTests">
+               </Test>
+               <Test
+                  Identifier = "SubmissionButtonPresenterTests">
+               </Test>
+               <Test
+                  Identifier = "SubmissionCommentsPresenterTests">
+               </Test>
+               <Test
+                  Identifier = "SubmissionDetailsPresenterTests">
+               </Test>
+               <Test
+                  Identifier = "SyllabusActionableItemsPresenterTests">
+               </Test>
+               <Test
+                  Identifier = "TextSubmissionPresenterTests">
+               </Test>
+               <Test
+                  Identifier = "UIImageStudentExtensionTests">
+               </Test>
+               <Test
+                  Identifier = "UIViewControllerExtensionsTests">
+               </Test>
+               <Test
+                  Identifier = "UrlSubmissionPresenterTests">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
    </TestAction>

@@ -21,6 +21,8 @@ platform :ios do
     run_tests(workspace: "Canvas.xcworkspace", devices: ["iPhone 8"], scheme: "StudentUITests")
   end
   
+  RESULT = File.absolute_path('./results')
+  OUTPUT = File.absolute_path('./output')
   
   lane :test do
     test_run_block = lambda do |testrun_info|
@@ -47,6 +49,8 @@ platform :ios do
       parallel_testrun_count: 4,
       skip_slack: true,
       batch_count: 8,
+      result_bundle: RESULT,
+      output_directory: OUTPUT,
     )
     unless result[:failed_testcount].zero?
       UI.message("There are #{result[:failed_testcount]} legitimate failing tests")
