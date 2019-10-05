@@ -17,7 +17,7 @@ default_platform(:ios)
 
 platform :ios do
   
-  lane :tests1 do
+  lane :test_old do
     run_tests(workspace: "Canvas.xcworkspace", devices: ["iPhone 8"], scheme: "StudentUITests")
   end
   
@@ -51,6 +51,8 @@ platform :ios do
       batch_count: 8,
       result_bundle: RESULT,
       output_directory: OUTPUT,
+      output_types: "html",
+      # skip_build: true,
     )
     unless result[:failed_testcount].zero?
       UI.message("There are #{result[:failed_testcount]} legitimate failing tests")
