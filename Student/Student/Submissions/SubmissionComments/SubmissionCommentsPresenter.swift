@@ -19,6 +19,7 @@
 import Foundation
 import Core
 import CoreData
+import NaturalLanguage
 
 protocol SubmissionCommentsViewProtocol: class {
     func reload()
@@ -32,6 +33,7 @@ class SubmissionCommentsPresenter {
     let submissionID: String
     weak var view: SubmissionCommentsViewProtocol?
     let userID: String
+    let tagger = NLTagger(tagSchemes: [.sentimentScore])
 
     lazy var comments = env.subscribe(GetSubmissionComments(
         context: context,
@@ -61,6 +63,33 @@ class SubmissionCommentsPresenter {
 
     func update() {
         view?.reload()
+    }
+
+    func analyzeTextForSentiment(text: String) -> (CGFloat, UIImage?, UIColor) {
+        tagger.string = text
+        let (sentiment, _) = tagger.tag(at: text.startIndex, unit: .paragraph, scheme: .sentimentScore)
+        let score = Double(sentiment?.rawValue ?? "0") ?? 0
+
+        print("** \(score) :  \(text)")
+
+        let systemImgName: String
+        let color: UIColor
+        let width: CGFloat
+        if score >= 0.8 {
+            systemImgName = "hand.thumbsup"
+            color = .green
+            width = 24
+        } else if score <= -0.8 {
+            systemImgName = "flame.fill"
+            color = .red
+            width = 24
+        } else {
+            systemImgName = "smiley"
+            color = .green
+            width = 0
+        }
+        let img = UIImage(systemName: systemImgName)?.withRenderingMode(.alwaysTemplate)
+        return (width, img, color)
     }
 
     func addComment(text: String) {

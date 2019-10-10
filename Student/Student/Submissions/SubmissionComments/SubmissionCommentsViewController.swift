@@ -34,7 +34,9 @@ class SubmissionCommentsViewController: UIViewController, ErrorViewController {
     @IBOutlet weak var tableView: UITableView?
     @IBOutlet weak var emptyImageView: UIImageView!
     @IBOutlet weak var emptyContainer: UIView!
-
+    @IBOutlet weak var sentimentButton: DynamicButton!
+    @IBOutlet weak var sentimentButtonWidth: NSLayoutConstraint!
+    
     var currentUserID: String?
     var keyboard: KeyboardTransitioning?
     var presenter: SubmissionCommentsPresenter?
@@ -275,9 +277,27 @@ extension SubmissionCommentsViewController: UITableViewDataSource, UITableViewDe
 
 extension SubmissionCommentsViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
+
+        perform(#selector(alayzeText), with: nil, afterDelay: 0.3)
+
         addCommentButton?.isEnabled = !(textView.text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
         addCommentPlaceholder?.isHidden = !textView.text.isEmpty
         setInsets()
+    }
+
+    @objc func alayzeText() {
+        NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(alayzeText), object: nil)
+
+        let text = addCommentTextView?.text.trimmingCharacters(in: .whitespacesAndNewlines)
+        if let text = text, !text.isEmpty, let (w, image, color) = presenter?.analyzeTextForSentiment(text: text) {
+            sentimentButtonWidth.constant = w
+            sentimentButton.setImage(image, for: .normal)
+            sentimentButton.tintColor = color
+        } else {
+            sentimentButtonWidth.constant = 0
+            sentimentButton.setImage(nil, for: .normal)
+            sentimentButton.tintColor = .clear
+        }
     }
 }
 

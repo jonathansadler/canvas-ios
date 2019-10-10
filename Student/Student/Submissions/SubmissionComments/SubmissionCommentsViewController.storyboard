@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="z6Z-9B-ukp">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="m8y-we-Jl9">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="24"/>
@@ -46,7 +43,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Um-tb-BF2" customClass="DynamicLabel" customModule="Student" customModuleProvider="target">
-                                                    <rect key="frame" x="207" y="28" width="101" height="20.5"/>
+                                                    <rect key="frame" x="219.5" y="28" width="88.5" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -56,7 +53,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="March 13 at 10:51 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="brg-4l-HGS" customClass="DynamicLabel" customModule="Student" customModuleProvider="target">
-                                                    <rect key="frame" x="143.5" y="48.5" width="164.5" height="20.5"/>
+                                                    <rect key="frame" x="183.5" y="45" width="124.5" height="14.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -101,7 +98,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6at-Xx-e6I" customClass="IconView" customModule="Student" customModuleProvider="target">
-                                                    <rect key="frame" x="224.5" y="-5" width="135.5" height="34"/>
+                                                    <rect key="frame" x="242" y="-5" width="118" height="34"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="lessThanOrEqual" constant="300" id="jWm-AB-N4T"/>
                                                     </constraints>
@@ -110,7 +107,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" layoutMarginsFollowReadableWidth="YES" text="Comment Text" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jQO-Zk-01K" customClass="DynamicLabel" customModule="Student" customModuleProvider="target">
-                                                    <rect key="frame" x="236.5" y="12" width="111.5" height="9"/>
+                                                    <rect key="frame" x="254" y="12" width="94" height="9"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -162,7 +159,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Thz-j3-Y3K" customClass="DynamicLabel" customModule="Student" customModuleProvider="target">
-                                                    <rect key="frame" x="67" y="28" width="101" height="20.5"/>
+                                                    <rect key="frame" x="67" y="28" width="88.5" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -172,7 +169,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="March 13 at 10:51 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S2V-PQ-jCT" customClass="DynamicLabel" customModule="Student" customModuleProvider="target">
-                                                    <rect key="frame" x="67" y="48.5" width="164.5" height="20.5"/>
+                                                    <rect key="frame" x="67" y="45" width="124.5" height="14.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -218,7 +215,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="893-hG-e0V" customClass="IconView" customModule="Student" customModuleProvider="target">
-                                                    <rect key="frame" x="15" y="-5" width="135.5" height="34"/>
+                                                    <rect key="frame" x="15" y="-5" width="118" height="34"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="lessThanOrEqual" constant="300" id="6G6-Mn-eLP"/>
                                                     </constraints>
@@ -228,7 +225,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" layoutMarginsFollowReadableWidth="YES" text="Comment Text" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eMn-Vx-0Ll" customClass="DynamicLabel" customModule="Student" customModuleProvider="target">
-                                                    <rect key="frame" x="27" y="12" width="111.5" height="9"/>
+                                                    <rect key="frame" x="27" y="12" width="94" height="9"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -264,12 +261,12 @@
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="SubmissionCommentAudioCell" rowHeight="57" id="MSG-Gi-WrB" customClass="SubmissionCommentAudioCell" customModule="Student" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="276" width="375" height="57"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MSG-Gi-WrB" id="mEg-Wj-XA5">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MSG-Gi-WrB" id="mEg-Wj-XA5">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="57"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HOr-G9-8Pg">
-                                                    <rect key="frame" x="15" y="13" width="345" height="32"/>
+                                                    <rect key="frame" x="15" y="13" width="345" height="33"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="32" id="8MA-9C-Duo"/>
                                                     </constraints>
@@ -289,12 +286,12 @@
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="SubmissionCommentVideoCell" rowHeight="190" id="nat-Ap-6Oh" customClass="SubmissionCommentVideoCell" customModule="Student" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="333" width="375" height="190"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nat-Ap-6Oh" id="Z1E-2H-LVT">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nat-Ap-6Oh" id="Z1E-2H-LVT">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="190"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EXe-uL-Kl7">
-                                                    <rect key="frame" x="15" y="13" width="345" height="160"/>
+                                                    <rect key="frame" x="15" y="13" width="345" height="166"/>
                                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="160" id="b6R-hj-1cv"/>
@@ -428,7 +425,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="3wp-xK-HJQ">
-                                                    <rect key="frame" x="4" y="0.0" width="283" height="33"/>
+                                                    <rect key="frame" x="4" y="0.0" width="255" height="33"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <accessibility key="accessibilityConfiguration" identifier="SubmissionComments.commentTextView"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -437,6 +434,20 @@
                                                         <outlet property="delegate" destination="9pN-2b-voW" id="UnK-Xf-GAt"/>
                                                     </connections>
                                                 </textView>
+                                                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n4S-jw-W11" customClass="DynamicButton" customModule="Student" customModuleProvider="target">
+                                                    <rect key="frame" x="263" y="5" width="24" height="24"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="SubmissionComments.addCommentButton"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="24" id="MO9-aI-tfZ"/>
+                                                        <constraint firstAttribute="height" constant="24" id="bJv-ij-P3b"/>
+                                                    </constraints>
+                                                    <state key="normal" image="smi"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="12"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </button>
                                                 <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uGc-Rr-ieQ" customClass="DynamicButton" customModule="Student" customModuleProvider="target">
                                                     <rect key="frame" x="291" y="5" width="24" height="24"/>
                                                     <accessibility key="accessibilityConfiguration" identifier="SubmissionComments.addCommentButton"/>
@@ -460,10 +471,12 @@
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstItem="uGc-Rr-ieQ" firstAttribute="leading" secondItem="3wp-xK-HJQ" secondAttribute="trailing" constant="4" id="0Iz-DT-rhP"/>
+                                                <constraint firstItem="n4S-jw-W11" firstAttribute="leading" secondItem="3wp-xK-HJQ" secondAttribute="trailing" constant="4" id="E5h-Zb-VZs"/>
                                                 <constraint firstItem="3wp-xK-HJQ" firstAttribute="top" secondItem="DjR-oA-G8w" secondAttribute="top" id="NO7-l5-LaT"/>
+                                                <constraint firstAttribute="bottom" secondItem="n4S-jw-W11" secondAttribute="bottom" constant="4" id="Nm5-Vn-cH3"/>
                                                 <constraint firstAttribute="bottom" secondItem="3wp-xK-HJQ" secondAttribute="bottom" id="SDb-vJ-ba3"/>
                                                 <constraint firstItem="WRu-wb-h9t" firstAttribute="top" secondItem="DjR-oA-G8w" secondAttribute="top" constant="8" id="VlP-Oj-y7j"/>
+                                                <constraint firstItem="uGc-Rr-ieQ" firstAttribute="leading" secondItem="n4S-jw-W11" secondAttribute="trailing" constant="4" id="ZJI-1W-dS5"/>
                                                 <constraint firstItem="WRu-wb-h9t" firstAttribute="leading" secondItem="DjR-oA-G8w" secondAttribute="leading" constant="9" id="cjm-Vw-bqT"/>
                                                 <constraint firstItem="3wp-xK-HJQ" firstAttribute="leading" secondItem="DjR-oA-G8w" secondAttribute="leading" constant="4" id="exB-6M-zjV"/>
                                                 <constraint firstAttribute="bottom" secondItem="uGc-Rr-ieQ" secondAttribute="bottom" constant="4" id="fXp-hw-eYd"/>
@@ -536,6 +549,8 @@
                         <outlet property="emptyImageView" destination="G8F-Nx-Hbp" id="5um-cv-bSI"/>
                         <outlet property="emptyLabel" destination="vxN-b5-Dqx" id="m4o-a4-Hgu"/>
                         <outlet property="keyboardSpace" destination="b2P-am-cmK" id="4ga-Ic-Xdy"/>
+                        <outlet property="sentimentButton" destination="n4S-jw-W11" id="L8c-Vx-wo9"/>
+                        <outlet property="sentimentButtonWidth" destination="MO9-aI-tfZ" id="lys-Ws-e1b"/>
                         <outlet property="tableView" destination="z6Z-9B-ukp" id="20Y-on-xbo"/>
                     </connections>
                 </viewController>
@@ -544,4 +559,7 @@
             <point key="canvasLocation" x="-254" y="33"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="smi" width="16" height="16"/>
+    </resources>
 </document>
