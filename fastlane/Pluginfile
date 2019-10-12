@@ -2,4 +2,5 @@
 #
 # Ensure this file is checked in to source control!
 
-gem 'fastlane-plugin-test_center'
+# gem 'fastlane-plugin-test_center'
+gem 'fastlane-plugin-test_center', :git => "https://github.com/lyndsey-ferguson/fastlane-plugin-test_center.git", :branch => "issue-150-crash-with-html-collation-ruby-2.6.x"
