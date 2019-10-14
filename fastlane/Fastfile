@@ -16,20 +16,20 @@
 default_platform(:ios)
 
 platform :ios do
-  
+
   lane :test_old do
     run_tests(workspace: "Canvas.xcworkspace", devices: ["iPhone 8"], scheme: "StudentUITests")
   end
-  
+
   RESULT = File.absolute_path('./results')
   OUTPUT = File.absolute_path('./output')
-  
+
   lane :test do
     test_run_block = lambda do |testrun_info|
       failed_test_count = testrun_info[:failed].size
       try_attempt = testrun_info[:try_count]
       UI.important("failed_test_count: #{failed_test_count}  tryAttempt: #{try_attempt}")
-      
+
       if failed_test_count > 0
         UI.important('The run of tests would finish with failures due to fragile tests here.')
 
@@ -38,7 +38,7 @@ platform :ios do
         end
       end
     end
-  
+
     result = multi_scan(
       workspace: 'Canvas.xcworkspace',
       devices: ["iPhone 8"],
@@ -51,14 +51,11 @@ platform :ios do
       batch_count: 8,
       result_bundle: RESULT,
       output_directory: OUTPUT,
-      output_types: "html",
+      output_types: "html,junit",
       # skip_build: true,
     )
     unless result[:failed_testcount].zero?
       UI.message("There are #{result[:failed_testcount]} legitimate failing tests")
     end
   end
-  
-  
- 
 end
