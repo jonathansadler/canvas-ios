@@ -67,6 +67,7 @@ open class CoreUITestCase: XCTestCase {
                 print("WARN: \(description) at \(filePath ?? "<unknown>"):\(lineNumber), will retry with clean launch...")
                 needsRetry = true
             } else {
+                needsLaunch = true
                 super.recordFailure(withDescription: description, inFile: filePath, atLine: lineNumber, expected: expected)
             }
         }
@@ -87,13 +88,13 @@ open class CoreUITestCase: XCTestCase {
         }
     }
 
-    private static var firstRun = true
+    private static var needsLaunch = true
     open override func setUp() {
         super.setUp()
         LoginSession.useTestKeychain()
         continueAfterFailure = false
-        if CoreUITestCase.firstRun || app.state != .runningForeground {
-            CoreUITestCase.firstRun = false
+        if CoreUITestCase.needsLaunch || app.state != .runningForeground {
+            CoreUITestCase.needsLaunch = false
             launch()
             if currentSession() != nil {
                 homeScreen.waitToExist()

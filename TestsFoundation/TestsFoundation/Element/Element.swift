@@ -133,13 +133,12 @@ public struct XCUIElementQueryWrapper: Element {
 
     public var exists: Bool {
         let timeout: TimeInterval = 30
-
         let deadline = Date().addingTimeInterval(timeout)
-
         while Date() < deadline {
             do {
                 return try query.allMatchingSnapshots().count > 0
-            } catch {
+            } catch let error {
+                print("Failed to get snapshot: \(error), retrying...")
                 usleep(200)
             }
         }
@@ -226,16 +225,18 @@ public struct XCUIElementQueryWrapper: Element {
 
     @discardableResult
     public func waitToExist(_ timeout: TimeInterval, file: StaticString, line: UInt) -> Element {
-        if !exists {
-            XCTAssertTrue(rawElement.waitForExistence(timeout: timeout), "Element \(id) not found", file: file, line: line)
+        let deadline = Date() + timeout
+        while !exists, Date() < deadline {
+            sleep(1)
         }
+        XCTAssertTrue(rawElement.exists, "Element \(id) not found", file: file, line: line)
         return self
     }
 
     @discardableResult
     public func waitToVanish(_ timeout: TimeInterval, file: StaticString, line: UInt) -> Element {
-        let deadline = Date().addingTimeInterval(timeout)
-        while rawElement.exists, Date() < deadline {
+        let deadline = Date() + timeout
+        while exists, Date() < deadline {
             sleep(1)
         }
         XCTAssertFalse(rawElement.exists, "Element \(id) still exists", file: file, line: line)

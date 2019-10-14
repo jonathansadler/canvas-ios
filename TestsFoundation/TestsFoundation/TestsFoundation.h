@@ -20,7 +20,7 @@
 
 #include <XCTest/XCTest.h>
 @interface XCUIElementQuery ()
-- (NSArray<XCUIElementSnapshot> *) allMatchingSnapshotsWithError:(NSError **)err;
+- (NSArray<XCUIElementSnapshot> * _Nullable) allMatchingSnapshotsWithError:(NSError * _Nullable * _Nullable)err;
 @end
 
 
