@@ -52,7 +52,7 @@ platform :ios do
       result_bundle: RESULT,
       output_directory: OUTPUT,
       output_types: "html,junit",
-      # skip_build: true,
+      skip_build: true,
     )
     unless result[:failed_testcount].zero?
       UI.message("There are #{result[:failed_testcount]} legitimate failing tests")

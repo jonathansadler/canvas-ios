@@ -58,7 +58,7 @@ open class CoreUITestCase: XCTestCase {
 
         // Don't set this above 1!
         // There seems to be a bug in how this interacts with XCTest causing too many retries to look like success (!!)
-        var retries = 1
+        var retries = 0
         override open func recordFailure(withDescription description: String, inFile filePath: String?, atLine lineNumber: Int, expected: Bool) {
             if needsRetry { return }
             if retries > 0 {

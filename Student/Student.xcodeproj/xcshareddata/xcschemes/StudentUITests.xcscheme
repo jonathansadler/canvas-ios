@@ -163,60 +163,112 @@
                BlueprintName = "StudentUnitTests"
                ReferencedContainer = "container:Student.xcodeproj">
             </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "7DC5716F22F8B16200F2E9BB"
+               BuildableName = "StudentUITests.xctest"
+               BlueprintName = "StudentUITests"
+               ReferencedContainer = "container:Student.xcodeproj">
+            </BuildableReference>
             <SkippedTests>
                <Test
-                  Identifier = "AssignmentDetailsPresenterTests">
+                  Identifier = "CalendarTests">
                </Test>
                <Test
-                  Identifier = "AssignmentListPresenterTests">
+                  Identifier = "DashboardEmptyTests">
                </Test>
                <Test
-                  Identifier = "CourseNavigationPresenterTests">
+                  Identifier = "LoginFindSchoolTests">
                </Test>
                <Test
-                  Identifier = "GroupNavigationPresenterTests">
+                  Identifier = "LoginStartTests">
                </Test>
                <Test
-                  Identifier = "PeopleListPresenterTests">
+                  Identifier = "ModulesTests">
                </Test>
                <Test
-                  Identifier = "PersistenceTestCase">
+                  Identifier = "NotificationsListTests">
                </Test>
                <Test
-                  Identifier = "QuizListPresenterTests">
+                  Identifier = "PeopleTests">
                </Test>
                <Test
-                  Identifier = "RoutesTests">
+                  Identifier = "QuizTests">
                </Test>
                <Test
-                  Identifier = "RubricPresenterTests">
+                  Identifier = "StudentAccountNotificationsTests">
                </Test>
                <Test
-                  Identifier = "StudentSyllabusPresenterTests">
+                  Identifier = "StudentActAsUserTests">
                </Test>
                <Test
-                  Identifier = "SubmissionButtonPresenterTests">
+                  Identifier = "StudentAnnouncementTests">
                </Test>
                <Test
-                  Identifier = "SubmissionCommentsPresenterTests">
+                  Identifier = "StudentCourseFileTests">
                </Test>
                <Test
-                  Identifier = "SubmissionDetailsPresenterTests">
+                  Identifier = "StudentCourseGroupTests">
                </Test>
                <Test
-                  Identifier = "SyllabusActionableItemsPresenterTests">
+                  Identifier = "StudentDashboardTests">
                </Test>
                <Test
-                  Identifier = "TextSubmissionPresenterTests">
+                  Identifier = "StudentDeepLinkTests">
                </Test>
                <Test
-                  Identifier = "UIImageStudentExtensionTests">
+                  Identifier = "StudentDiscussionDetailsTests">
                </Test>
                <Test
-                  Identifier = "UIViewControllerExtensionsTests">
+                  Identifier = "StudentDiscussionEditTests">
                </Test>
                <Test
-                  Identifier = "UrlSubmissionPresenterTests">
+                  Identifier = "StudentDiscussionListTests">
+               </Test>
+               <Test
+                  Identifier = "StudentDiscussionReplyTests">
+               </Test>
+               <Test
+                  Identifier = "StudentInboxTests">
+               </Test>
+               <Test
+                  Identifier = "StudentLoginTests">
+               </Test>
+               <Test
+                  Identifier = "StudentPageTests">
+               </Test>
+               <Test
+                  Identifier = "StudentProfileTests">
+               </Test>
+               <Test
+                  Identifier = "StudentTodoListTests">
+               </Test>
+               <Test
+                  Identifier = "StudentUITestCase">
+               </Test>
+               <Test
+                  Identifier = "SubmissionButtonTests">
+               </Test>
+               <Test
+                  Identifier = "SubmissionCommentsTests">
+               </Test>
+               <Test
+                  Identifier = "SubmissionDetailsTests">
+               </Test>
+               <Test
+                  Identifier = "SubmissionFilesTests">
+               </Test>
+               <Test
+                  Identifier = "SyllabusTests">
+               </Test>
+               <Test
+                  Identifier = "TextSubmissionTests">
+               </Test>
+               <Test
+                  Identifier = "URLSubmissionTests">
                </Test>
             </SkippedTests>
          </TestableReference>
