@@ -39,7 +39,7 @@ platform :ios do
       devices: ["iPhone 8"],
       try_count: 3,
       fail_build: false,
-      scheme: 'NightlyTests',
+      scheme: 'StudentUITests',
       testrun_completed_block: test_run_block,
       # parallel_testrun_count: 4,
       skip_slack: true,
