@@ -17,6 +17,7 @@
 //
 
 import Foundation
+import CoreData
 
 class PageDetailsPresenter {
 
@@ -49,7 +50,7 @@ class PageDetailsPresenter {
     var page: Page? {
         return pages?.first
     }
-    var pages: Store<LocalUseCase<Page>>?
+    var pages: Store<GetPageDetail>?
 
     func viewDidLoad() {
         if context.contextType == .course {
@@ -60,15 +61,25 @@ class PageDetailsPresenter {
         colors.refresh()
 //        pages.refresh(force: true)
 
-        let useCase = GetPage(context: context, url: pageURL)
-        useCase.fetch(environment: env, force: true) { [weak self] (apiPage, response, error) in
-            self?.env.database.viewContext.perform {
-                self?.pages = self?.env.subscribe(LocalUseCase(scope: Scope.where(#keyPath(Page.id), equals: apiPage!.page_id))) {
-                    self?.viewController?.update()
-                }
-                self?.pages?.refresh()
+        env.api.makeRequest(GetPageRequest(context: context, url: pageURL)) { [weak self, context, pageURL] apiPage, response, error in
+            guard let apiPage = apiPage else {
+                // TODO: self?.viewController?.showError(error ?? .defaultError)
+                return
             }
+            self?.pages = self?.env.subscribe(GetPageDetail(context: context, id: apiPage.page_id.value, url: pageURL)) { [weak self] in
+                self?.viewController?.update()
+            }
+            self?.pages?.refresh(force: true)
         }
+//        let useCase = GetPage(context: context, url: pageURL)
+//        useCase.fetch(environment: env, force: true) { [weak self] (apiPage, response, error) in
+//            self?.env.database.viewContext.perform {
+//                self?.pages = self?.env.subscribe(LocalUseCase(scope: Scope.where(#keyPath(Page.id), equals: apiPage!.page_id))) {
+//                    self?.viewController?.update()
+//                }
+//                self?.pages?.refresh()
+//            }
+//        }
 
         NotificationCenter.default.addObserver(self, selector: #selector(pageEdited), name: Notification.Name("page-edit"), object: nil)
 
@@ -80,6 +91,7 @@ class PageDetailsPresenter {
             return
         }
 
+        env.database.viewContext.perform {
         do {
             let jsonData = try JSONSerialization.data(withJSONObject: rawEditData, options: .prettyPrinted)
             let decoder = JSONDecoder()
@@ -87,15 +99,22 @@ class PageDetailsPresenter {
             let apiPage = try decoder.decode(APIPage.self, from: jsonData)
 
             // if the front page was changed, ensure only one page has the front page set
-            let frontPageChanged = apiPage.front_page != page?.isFrontPage
+            let frontPageChanged = apiPage.front_page != self.page?.isFrontPage
             if frontPageChanged {
-                let scope = GetFrontPage(context: context).scope
-                let currentFrontPage: Page? = env.database.viewContext.fetch(scope.predicate, sortDescriptors: nil).first
+                let scope = GetFrontPage(context: self.context).scope
+                let currentFrontPage: Page? = self.env.database.viewContext.fetch(scope.predicate, sortDescriptors: nil).first
                 currentFrontPage?.isFrontPage = false
+                try self.env.database.viewContext.save()
             }
+            self.pages?.useCase.url = apiPage.url
+            self.pages?.refresh(force: true)
 
-            page?.update(from: apiPage)
-            try env.database.viewContext.save()
+//            if let page = self.page {
+//                //page.title = apiPage.title
+//                //page.update(from: apiPage)
+//                print(page)
+//            }
+//            try self.env.database.viewContext.save()
 
 //            self.pages = self.env.subscribe(GetPage(context: context, url: apiPage.url)) { [weak self] in
 //                self?.viewController.update()
@@ -103,7 +122,7 @@ class PageDetailsPresenter {
 //            self.pages.refresh()
         } catch {
             return
-        }
+        }}
     }
 
     func updateNavBar() {
@@ -133,5 +152,39 @@ class PageDetailsPresenter {
 
     func onUpdate() {
 
+    }
+}
+
+class GetPageDetail: APIUseCase {
+    typealias Model = Page
+
+    let context: Context
+    let id: String
+    var url: String
+
+    var cacheKey: String? {
+        return "\(context.pathComponent)/pages/\(id)"
+    }
+
+    init(context: Context, id: String, url: String) {
+        self.context = context
+        self.id = id
+        self.url = url
+    }
+
+    var scope: Scope {
+        return .where(#keyPath(Page.id), equals: id)
+    }
+
+    var request: GetPageRequest {
+        return GetPageRequest(context: context, url: url)
+    }
+
+    func write(response: APIPage?, urlResponse: URLResponse?, to client: NSManagedObjectContext) {
+        guard let response = response else {
+            return
+        }
+        let page = Page.save(response, in: client)
+        page.contextID = context.canvasContextID
     }
 }
