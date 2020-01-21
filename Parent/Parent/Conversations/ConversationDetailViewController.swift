@@ -155,7 +155,7 @@ class ConversationDetailCell: UITableViewCell {
     @IBOutlet weak var dateLabel: DynamicLabel!
     @IBOutlet weak var avatar: AvatarView!
     @IBOutlet weak var stackview: UIStackView!
-    @IBOutlet weak var attachmentCollectionView: UICollectionView!
+    @IBOutlet weak var attachmentStackView: HorizontalScrollingStackview!
 
     var onTapAttachment: ((File) -> Void)?
     var message: ConversationMessage?
@@ -170,11 +170,28 @@ class ConversationDetailCell: UITableViewCell {
         avatar.url = userMap[ m.authorID ]?.avatarURL
         avatar.name = userMap[ m.authorID ]?.name ?? ""
 
-        attachmentCollectionView.dataSource = nil
-        attachmentCollectionView.isHidden = message?.attachments.isEmpty == true
-        if message?.attachments.isEmpty == false {
-            attachmentCollectionView.dataSource = self
-            attachmentCollectionView.reloadData()
+        attachmentStackView.arrangedSubviews.forEach { v in v.removeFromSuperview() }
+
+        for (index, a) in m.attachments.enumerated() {
+            var v: UIView?
+            if let icon = a.attachmentIcon {
+                let npa = NonPhotoAttachment()
+                npa.imageView.image = icon
+                npa.label.text = a.displayName
+                npa.button.addTarget(self, action: #selector(tapAttachment(sender:)), for: .primaryActionTriggered)
+                npa.button.tag = index
+                v = npa
+            }
+            else {
+                let pa = PhotoAttachment()
+                pa.imageView.load(url: a.previewURL ?? a.thumbnailURL ?? a.url)
+                pa.button.addTarget(self, action: #selector(tapAttachment(sender:)), for: .primaryActionTriggered)
+                pa.button.tag = index
+                v = pa
+            }
+            attachmentStackView.addArrangedSubview(v!)
+            v?.addConstraintsWithVFL("H:[view(120)]")
+            v?.addConstraintsWithVFL("V:[view(104)]")
         }
     }
 
@@ -185,42 +202,130 @@ class ConversationDetailCell: UITableViewCell {
     }
 }
 
-class ConversationDetailAttachmentCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var button: UIButton!
-}
+class PhotoAttachment: UIView {
+    var imageView: UIImageView!
+    var button: UIButton!
 
-extension ConversationDetailCell: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        message?.attachments.count ??  0
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
     }
 
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell: ConversationDetailAttachmentCollectionViewCell = collectionView.dequeue(for: indexPath)
-        guard message?.attachments.count ?? 0 > indexPath.item else { return cell }
-        let attachment = message?.attachments[indexPath.item]
-        cell.button.tag = indexPath.item
-        cell.button.addTarget(self, action: #selector(tapAttachment(sender:)), for: .primaryActionTriggered)
-        if let icon = attachment?.attachmentIcon {
-            cell.imageView.image = icon
-            cell.imageView.contentMode = .scaleAspectFit
-
-            cell.contentView.layer.borderColor = cell.tintColor.cgColor
-            cell.contentView.layer.borderWidth = 1.0
-            cell.contentView.layer.cornerRadius = 8
-        } else {
-            cell.imageView.load(url: attachment?.previewURL ?? attachment?.thumbnailURL ?? attachment?.url)
-            cell.imageView.contentMode = .scaleAspectFill
-
-            cell.contentView.layer.borderColor = nil
-            cell.contentView.layer.borderWidth = 0
-            cell.contentView.layer.cornerRadius = 0
-
-        }
-        cell.imageView.setNeedsLayout()
-
-        return cell
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize { CGSize(width: 120, height: 104) }
+    func commonInit() {
+        imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
+        button = UIButton(type: .system)
+        addSubview(imageView)
+        addSubview(button)
+        imageView.pin(inside: self)
+        button.pin(inside: self)
+
+        layer.cornerRadius = 4.0
+        layer.masksToBounds = true
+    }
 }
+
+class NonPhotoAttachment: UIView {
+    var imageView: UIImageView!
+    var button: UIButton!
+    var label: DynamicLabel!
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    func commonInit() {
+        label = DynamicLabel()
+        label.font = UIFont.scaledNamedFont(.regular14)
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        button = UIButton(type: .system)
+        addSubview(imageView)
+        addSubview(label)
+        addSubview(button)
+        label.addConstraintsWithVFL("V:[view(21)]-(20)-|")
+        label.addConstraintsWithVFL("H:|[view]|")
+        imageView.addConstraintsWithVFL("V:[view(30)]-(8)-[label]", views: ["label": label])
+        imageView.addConstraintsWithVFL("H:[view(30)]")
+        imageView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+
+        button.pin(inside: self)
+
+        layer.borderColor = tintColor.cgColor
+        layer.borderWidth = 1.0
+        layer.cornerRadius = 4.0
+    }
+}
+
+
+//class ConversationDetailAttachmentCollectionViewCell: UICollectionViewCell {
+//    @IBOutlet weak var imageView: UIImageView!
+//    @IBOutlet weak var button: UIButton!
+//    @IBOutlet weak var nonImageAttachmentContainer: UIView!
+//    @IBOutlet weak var nonImageAttachmentImageView: UIImageView!
+//    @IBOutlet weak var nonImageAttachmentLabel: DynamicLabel!
+//
+//    override func prepareForReuse() {
+//        super.prepareForReuse()
+//    }
+//
+//    func update(_ attachment: File?) {
+//        if let icon = attachment?.attachmentIcon {
+//            nonImageAttachmentContainer.isHidden =  false
+//            nonImageAttachmentImageView.image = icon
+//            nonImageAttachmentLabel.text = attachment?.displayName
+//        }
+//        else {
+//            nonImageAttachmentContainer.isHidden =  true
+//            imageView.load(url: attachment?.previewURL ?? attachment?.thumbnailURL ?? attachment?.url)
+//            imageView.contentMode = .scaleAspectFill
+//        }
+//
+//        contentView.layer.borderColor = tintColor.cgColor
+//        contentView.layer.borderWidth = 1.0
+//        contentView.layer.cornerRadius = 8
+//        contentView.layer.masksToBounds = true
+//    }
+//}
+
+//class ConversationAttachmentCollectionViewDataSource: NSObject, UICollectionViewDataSource {
+//    var attachments: [File] =  []
+//
+//    init(attachments: [File]?) {
+//        self.attachments = attachments ?? []
+//    }
+//
+//    func registerCells(collectionView: UICollectionView) {
+//        let id = String(describing: ConversationDetailAttachmentCollectionViewCell.self)
+//        for (i, _) in attachments.enumerated() {
+//            collectionView.register(ConversationDetailAttachmentCollectionViewCell.self, forCellWithReuseIdentifier: id + "_\(i)")
+//        }
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        attachments.count
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//        let id = String(describing: ConversationDetailAttachmentCollectionViewCell.self)
+//        let cell = collectionView.dequeue(withReuseIdentifier: id + "_\(indexPath.item)", for: indexPath) as! ConversationDetailAttachmentCollectionViewCell
+////        let cell: ConversationDetailAttachmentCollectionViewCell = collectionView.dequeue(for: indexPath)
+//        guard attachments.count > indexPath.item else { return cell }
+//        let attachment = attachments[indexPath.item]
+//        cell.button.tag = indexPath.item
+//        cell.update(attachment)
+//
+//        return cell
+//    }
+//}
